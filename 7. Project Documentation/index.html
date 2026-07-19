@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Approval - Prediction Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
+</head>
+<body>
+    <div class="navbar">
+        <span class="logo-icon">💳</span>
+        ApprovalIQ - Credit Card Approval Prediction
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Check Your Credit Card Eligibility</h1>
+            <p>Enter the applicant's financial and demographic details to get an instant, ML-powered approval prediction.</p>
+            <div class="badge">🔒 Your information is used only to generate this prediction</div>
+        </div>
+
+        <div class="layout">
+            <div class="card">
+                <h2>Applicant Profile</h2>
+                <form action="{{ url_for('predict') }}" method="POST">
+
+                    <div class="section-title">Personal Details</div>
+
+                    <div class="input-box">
+                        <label>Gender</label>
+                        <select name="gender" required>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Age (years)</label>
+                        <input type="number" name="age" placeholder="e.g. 30" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Family Status</label>
+                        <select name="family_status" required>
+                            <option value="Married">Married</option>
+                            <option value="Single / not married">Single / Not Married</option>
+                            <option value="Civil marriage">Civil Marriage</option>
+                            <option value="Separated">Separated</option>
+                            <option value="Widow">Widow</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Family Members Count</label>
+                        <input type="number" name="fam_members" placeholder="e.g. 2" required>
+                    </div>
+
+                    <div class="section-title">Financial Details</div>
+
+                    <div class="input-box">
+                        <label>Annual Income (₹)</label>
+                        <input type="number" name="income" placeholder="e.g. 250000" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Income Type</label>
+                        <select name="income_type" required>
+                            <option value="Working">Working</option>
+                            <option value="Commercial associate">Commercial Associate</option>
+                            <option value="Pensioner">Pensioner</option>
+                            <option value="State servant">State Servant</option>
+                            <option value="Student">Student</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Years Employed</label>
+                        <input type="number" name="years_employed" placeholder="e.g. 5" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Education Type</label>
+                        <select name="education_type" required>
+                            <option value="Secondary / secondary special">Secondary</option>
+                            <option value="Higher education">Higher Education</option>
+                            <option value="Incomplete higher">Incomplete Higher</option>
+                            <option value="Lower secondary">Lower Secondary</option>
+                            <option value="Academic degree">Academic Degree</option>
+                        </select>
+                    </div>
+
+                    <div class="section-title">Assets & Housing</div>
+
+                    <div class="input-box">
+                        <label>Own a Car?</label>
+                        <select name="own_car" required>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Own Realty (Property)?</label>
+                        <select name="own_realty" required>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box" style="grid-column: 1 / -1;">
+                        <label>Housing Type</label>
+                        <select name="housing_type" required>
+                            <option value="House / apartment">House / Apartment</option>
+                            <option value="With parents">With Parents</option>
+                            <option value="Municipal apartment">Municipal Apartment</option>
+                            <option value="Rented apartment">Rented Apartment</option>
+                            <option value="Office apartment">Office Apartment</option>
+                            <option value="Co-op apartment">Co-op Apartment</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Run Prediction →</button>
+                </form>
+            </div>
+
+            <div class="preview-panel">
+                <div class="icon">👤</div>
+                <strong>Ready when you are</strong>
+                Fill in the applicant's details and submit to instantly see the approval prediction.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

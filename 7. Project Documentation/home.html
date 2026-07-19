@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Approval Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
+</head>
+<body>
+    <div class="navbar">
+        <span class="logo-icon">💳</span>
+        ApprovalIQ - Credit Card Approval Prediction
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Credit Card Approval Prediction</h1>
+            <p>An ML-powered decision engine that predicts whether a credit card application is likely to be approved, based on applicant financial and demographic information — instantly, before formally applying.</p>
+        </div>
+
+        <div class="hero-card">
+            <h2>How it works</h2>
+            <p>Enter an applicant's income, employment, education, and household details. Our trained machine learning model — built on real-world applicant data — analyzes the profile and returns an instant Approved / Not Approved decision.</p>
+            <a href="{{ url_for('predict_page') }}">
+                <button>Check Eligibility →</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
